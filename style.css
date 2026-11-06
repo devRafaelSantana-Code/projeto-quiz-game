@@ -1,0 +1,183 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Arial, Helvetica, sans-serif;
+   background: linear-gradient(150deg, #14cde6, #ae0cee);
+   height: 100vh;
+   overflow: hidden;
+}
+
+.container {
+   display: flex;
+   min-height: calc(100vh - 60px);
+   justify-content: flex-start;
+   align-items: center;
+   flex-direction: column;
+   padding-top: 200px;
+}
+
+h1 {
+   text-align: center;
+   color: #0f0;
+   font-size: 40px;
+   margin: 10px 0;
+   text-shadow: 0px 5px 5px #0005;
+}
+
+.start {
+   visibility: hidden;
+   color: #e92;
+   text-shadow: 0px 5px 5px #0005;
+   margin: 10px 0;
+   font-size: 20px;
+   text-align: center;
+}
+
+.start.piscar {
+   visibility: visible;
+   animation: efeitoPiscar 800ms infinite alternate;
+}
+
+@keyframes efeitoPiscar {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0.5;
+   }
+}
+
+.progress {
+   height: 5px;
+   position: fixed;
+   left: 0;
+   top: 0;
+   right: 0;
+}
+
+.progress--bar {
+   background-color: #0f0;
+   height: 10px;
+   box-shadow: 0px 5px 5px #0005;
+
+   transition: all ease 500ms;
+}
+
+.questionArea,
+.scoreArea {
+   display: none;
+}
+
+.questionArea {
+   text-align: center;
+   max-width: 500px;
+   width: 100%;
+   min-height: 280px;
+}
+
+.question {
+   color: #fff;
+   font-size: 18px;
+   font-weight: 600;
+   margin: 30px 0;
+}
+.option {
+   display: flex;
+   align-items: center;
+   height: 40px;
+   background-color: #0003;
+   border-radius: 10px;
+   margin: 10px 0px;
+   color: #fff;
+   font-size: 15px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: all ease 500ms;
+}
+.option span {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 30px;
+   height: 30px;
+   border-radius: 15px;
+   margin-left: 5px;
+   margin-right: 10px;
+   background-color: #000d;
+   color: #fff;
+   pointer-events: none;
+}
+.option:hover {
+   color: #000;
+   font-weight: 600;
+   background-color: #e92;
+}
+
+.scoreArea {
+   width: 350px;
+   background-color: #0005;
+   padding: 20px;
+   border-radius: 20px;
+   margin: 10px;
+   text-align: center;
+}
+
+.prizeImage {
+   width: auto;
+   height: 100px;
+   margin-bottom: 10px;
+}
+
+.scoreText1 {
+   color: #fff;
+   text-shadow: 0px 0px 5px #0005;
+   font-size: 23px;
+   font-weight: bold;
+   margin-bottom: 10px;
+}
+
+.scorePct {
+   color: #0f0;
+   text-shadow: 0px 5px 5px #0005;
+   font-size: 30px;
+   font-weight: bold;
+   margin-bottom: 10px;
+}
+
+.scoreText2 {
+   font-size: 16px;
+   color: #fff;
+   text-shadow: 0px 0px 5px #0005;
+   margin-bottom: 10px;
+}
+
+.scoreArea button {
+   border: 0;
+   border-radius: 10px;
+   background: linear-gradient(150deg, #14cde6, #ae0cee);
+   box-shadow: 0px 5px 5px #0005;
+   color: #fff;
+   text-shadow: 0px 0px 5px #0005;
+   padding: 10px;
+   margin-top: 20px;
+   cursor: pointer;
+}
+
+.scoreArea button:hover {
+   background: #e92;
+}
+
+footer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 60px;
+   color: #fff;
+   font-size: 13px;
+   text-shadow: 0px 0px 5px #0005;
+   background-color: #0005;
+}
