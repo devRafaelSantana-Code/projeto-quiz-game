@@ -1,128 +1,116 @@
-# 🧠 Quiz Game — Motor de Avaliação Interativo (JavaScript Vanilla)
+# 🧠 Quiz Game — Jogo de Perguntas e Respostas em JavaScript
 
 <p align="center">
-  <img src="https://img.shields.io/badge/JavaScript-Vanilla_Fundamental-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript Vanilla">
-  <img src="https://img.shields.io/badge/CSS3-Custom_Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/HTML5-Dynamic_Interface-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/DOM-Interactive_UI-6C63FF?style=for-the-badge" alt="DOM Manipulation">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/DOM-6C63FF?style=for-the-badge&logo=javascript&logoColor=white" alt="DOM">
 </p>
 
-## 📌 Sobre o Projeto
+## 🚀 Demonstração
 
-O **Quiz Game** é uma aplicação interativa de perguntas e respostas desenvolvida com JavaScript Vanilla, baseada nos desafios práticos da plataforma **B7Web**.
+Projeto publicado na Vercel, permitindo experimentar o jogo diretamente pelo navegador.
 
-O projeto funciona como um motor de avaliação baseado em dados, utilizando uma coleção de questões para construir dinamicamente uma interface de múltipla escolha, atualizar uma barra de progresso e apresentar um painel de resultados ao final da avaliação.
+**[🎮 Acessar Quiz Game](https://projeto-quiz-game.vercel.app/)**
 
-O principal objetivo do desenvolvimento é consolidar conhecimentos em manipulação dinâmica do DOM, gerenciamento de estados sequenciais, processamento de cálculos percentuais e integração entre JavaScript e animações CSS.
+**[📂 Repositório no GitHub](https://github.com/devRafaelSantana-Code/projeto-quiz-game)**
 
-## 🛠️ Tecnologias e Recursos Técnicos
+## 📖 Sobre o projeto
 
-- **HTML5:** Estruturação semântica dos elementos e organização dos componentes da interface.
-- **CSS3:** Estilização personalizada, gradientes, transições, animações com `@keyframes` e controle de estados visuais.
-- **JavaScript Vanilla:** Implementação da lógica do jogo, manipulação do DOM, gerenciamento de eventos e processamento dos resultados.
+O **Quiz Game** é uma aplicação interativa de perguntas e respostas desenvolvida com HTML5, CSS3 e JavaScript Vanilla, baseada em um desafio prático da B7Web.
 
-## ⚙️ Funcionalidades e Implementação
+O projeto consiste em um jogo de conhecimentos no qual o usuário responde a uma sequência de questões, acompanha seu progresso e recebe um resultado final de acordo com seu desempenho.
 
-### 🗂️ Arquitetura Baseada em Dados
+A aplicação utiliza manipulação do DOM para construir e atualizar dinamicamente a interface, controlar o fluxo das perguntas e apresentar feedback visual durante a experiência.
 
-As perguntas, alternativas e índices das respostas corretas são centralizados no arquivo `questions.js`, organizados em um array de objetos.
+O desenvolvimento teve como foco a prática da lógica de programação, manipulação de elementos HTML, gerenciamento do estado do jogo e criação de interfaces interativas.
 
-Essa abordagem separa o conteúdo da lógica de funcionamento, facilitando a manutenção e permitindo ampliar ou modificar o questionário sem alterar a estrutura principal do motor.
+## 🛠️ Tecnologias utilizadas
 
-### ⚡ Renderização Dinâmica de Questões
+- **HTML5:** estruturação semântica da aplicação.
+- **CSS3:** estilização da interface, organização dos elementos e animações.
+- **JavaScript Vanilla:** lógica do jogo, controle das perguntas, pontuação e interatividade.
+- **DOM API:** manipulação dinâmica dos elementos da página.
 
-A função `showQuestion` é responsável por apresentar as questões e construir dinamicamente as alternativas.
+## ✨ Funcionalidades
 
-A montagem dos elementos utiliza uma variável acumuladora (`optionsHtml`), que recebe as estruturas HTML durante a iteração antes de sua inserção no DOM.
+- **Sistema de perguntas e respostas:** apresentação dinâmica das questões disponíveis no jogo.
+- **Banco de questões:** organização das perguntas e alternativas em uma estrutura de dados JavaScript.
+- **Seleção de respostas:** interação com as alternativas disponíveis em cada questão.
+- **Barra de progresso:** acompanhamento visual do avanço durante o questionário.
+- **Sistema de pontuação:** contabilização das respostas corretas e cálculo do desempenho final.
+- **Feedback visual:** indicação do resultado obtido por meio de cores e elementos visuais.
+- **Tela de resultados:** apresentação da quantidade de questões respondidas e do percentual de acertos.
+- **Reiniciar partida:** possibilidade de iniciar uma nova rodada após a conclusão do jogo.
+- **Renderização dinâmica:** atualização da interface conforme o andamento da partida.
 
-Essa estratégia reduz operações repetidas de atualização da interface durante a construção das alternativas.
+## ⚙️ Implementação técnica
 
-### 📊 Barra de Progresso Dinâmica
+### Organização das perguntas
 
-A aplicação utiliza cálculos percentuais para atualizar visualmente o andamento da avaliação.
+As questões são armazenadas em uma estrutura de dados JavaScript, permitindo separar o conteúdo do questionário da lógica responsável pela execução do jogo.
 
-A porcentagem é calculada a partir da relação entre a questão atual e a quantidade total de questões:
+### Renderização dinâmica
 
-\[
-\text{Progresso} = \left\lfloor \frac{\text{Questão Atual}}{\text{Total de Questões}} \times 100 \right\rfloor
-\]
+A função `showQuestion()` utiliza manipulação do DOM e templates de strings para construir dinamicamente os elementos da pergunta e suas respectivas alternativas.
 
-O resultado é aplicado dinamicamente à propriedade `width` do elemento responsável pela barra de progresso, com transições suaves controladas pelo CSS.
+### Acompanhamento do progresso
 
-### 🏆 Sistema de Avaliação e Pontuação
+A aplicação atualiza uma barra de progresso percentual conforme o usuário avança pelas questões, proporcionando uma referência visual do andamento da partida.
 
-Ao finalizar o questionário, a função `finishQuiz` processa o desempenho do usuário e apresenta o resultado da avaliação.
+### Sistema de pontuação
 
-O sistema utiliza diferentes faixas de aproveitamento para classificar o desempenho e aplicar feedbacks visuais personalizados, com cores específicas para cada nível de resultado.
+A função `finishQuiz()` realiza a finalização do questionário, calcula o percentual de acertos e apresenta o resultado obtido pelo usuário.
 
-### 🎬 Animações e Controle de Estados
+O feedback visual utiliza diferentes cores para representar o desempenho alcançado.
 
-O gerenciamento das transições entre as etapas utiliza `setTimeout` para controlar a exibição dos elementos e a aplicação ou remoção de classes CSS.
+### Temporização e animações
 
-A classe `.piscar`, associada a animações definidas com `@keyframes`, complementa o feedback visual e contribui para uma experiência de utilização mais dinâmica.
+O projeto utiliza `setTimeout()` para controlar a execução de determinadas ações e transições, contribuindo para uma experiência mais organizada durante a navegação entre as questões.
 
-## 🎨 Interface e Experiência do Usuário
+## 📦 Como executar o projeto
 
-- **Layout com gradiente:** Aplicação de fundo com gradiente linear para composição visual da interface.
-- **Controle de viewport:** Utilização de `height: 100vh` e `overflow: hidden` para manter a aplicação ajustada à área visível da janela.
-- **Transições CSS:** Animações suaves para atualização dos elementos e apresentação do progresso.
-- **Interação com alternativas:** Utilização de atributos personalizados `data-op` para identificar as opções selecionadas.
-- **Controle de eventos:** Aplicação de `pointer-events: none` nos elementos internos `<span>`, direcionando a interação para o elemento contêiner responsável pelo evento de clique.
-
-## 📂 Estrutura do Projeto
-
-```text
-projeto-quiz-game/
-│
-├── index.html
-├── css/
-│   └── style.css
-│
-└── js/
-    ├── questions.js
-    └── script.js
-```
-
-## 💻 Como Executar o Projeto Localmente
-
-Por ser uma aplicação desenvolvida com tecnologias nativas do navegador, o projeto não exige instalação de dependências ou configuração de servidor backend.
-
-1. Clone o repositório:
+**1. Clone o repositório:**
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/devRafaelSantana-Code/projeto-quiz-game.git
 ```
 
-2. Acesse a pasta do projeto:
+**2. Acesse a pasta do projeto:**
 
 ```bash
 cd projeto-quiz-game
 ```
 
-3. Abra o arquivo `index.html` diretamente no navegador ou utilize a extensão **Live Server** do Visual Studio Code para executar a aplicação em ambiente local.
+**3. Execute a aplicação:**
 
-## 🎯 Objetivos de Aprendizado
+Abra o arquivo `index.html` diretamente no navegador ou utilize a extensão **Live Server** no Visual Studio Code para executar o projeto em um servidor de desenvolvimento local.
 
-O desenvolvimento deste projeto contribuiu para a consolidação dos seguintes conhecimentos:
+## 📚 Aprendizados
 
-- Manipulação e atualização dinâmica do DOM.
-- Organização de dados utilizando arrays e objetos.
-- Separação entre dados e lógica de aplicação.
-- Gerenciamento de estados e fluxo sequencial de execução.
-- Manipulação de eventos e atributos personalizados.
-- Cálculos matemáticos aplicados a interfaces.
-- Integração entre JavaScript e propriedades CSS.
-- Utilização de temporizadores com `setTimeout`.
-- Desenvolvimento de interfaces interativas com HTML5, CSS3 e JavaScript.
+O desenvolvimento deste projeto proporcionou a prática e consolidação de conhecimentos importantes no desenvolvimento Front-End, especialmente:
+
+- Manipulação do DOM com JavaScript.
+- Utilização de arrays e objetos para organização de dados.
+- Estruturação de funções e lógica condicional.
+- Gerenciamento do estado e fluxo de execução de uma aplicação.
+- Renderização dinâmica de conteúdo HTML.
+- Implementação de sistemas de pontuação e acompanhamento de progresso.
+- Utilização de `setTimeout()` para controle de temporização.
+- Aplicação de feedback visual e animações com CSS3.
+- Integração entre HTML5, CSS3 e JavaScript Vanilla.
 
 ## 👨‍💻 Autor
 
 **Rafael Santana**
 
-Estudante de Engenharia da Computação | Foco em Desenvolvimento Full-Stack, JavaScript e Engenharia de Software.
+Estudante de Engenharia da Computação, com foco em desenvolvimento Full-Stack e construção de aplicações web.
+
+- **GitHub:** [devRafaelSantana-Code](https://github.com/devRafaelSantana-Code)
+- **Projeto:** [Quiz Game — Vercel](https://projeto-quiz-game.vercel.app/)
 
 ---
 
 <p align="center">
-  Projeto desenvolvido para fins educacionais e para consolidação de conhecimentos em HTML5, CSS3, JavaScript e desenvolvimento de interfaces responsivas.
+  Desenvolvido por <strong>Rafael Santana</strong> 🚀
 </p>
