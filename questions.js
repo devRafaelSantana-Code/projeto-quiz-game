@@ -1,11 +1,11 @@
-let questions = [
+const questions = [
    {
-      question: "Em qual elemento HTML nós colocamos o javascript?",
+      question: "Em qual elemento HTML nós colocamos o JavaScript?",
       options: ["tag js", "tag script", "tag scripting", "tag javascript"],
       answer: 1,
    },
    {
-      question: "Onde é o local certo de colocar o javascript?",
+      question: "Onde é o local certo de colocar o JavaScript?",
       options: [
          "Na tag body",
          "Na tag head",
@@ -15,12 +15,12 @@ let questions = [
    },
    {
       question:
-         "Qual a sintaxe correta para adicionar um arquivo javascript externo na tag script?",
+         "Qual a sintaxe correta para adicionar um arquivo JavaScript externo na tag script?",
       options: ['name="xxx.js"', 'src="xxx.js"', 'href="xxx.js"'],
       answer: 1,
    },
    {
-      question: "Um arquivo javascript externo precisa ter a tag script",
+      question: "Um arquivo JavaScript externo precisa ter a tag script?",
       options: ["Verdade", "Falso"],
       answer: 1,
    },
@@ -35,7 +35,7 @@ let questions = [
       answer: 3,
    },
    {
-      question: "Como você cria uma função no Javascript?",
+      question: "Como você cria uma função no JavaScript?",
       options: [
          "function:minhaFuncao()",
          "function = minhaFuncao()",
@@ -53,13 +53,13 @@ let questions = [
       answer: 2,
    },
    {
-      question: "Como escrever uma condicional IF no Javascript?",
+      question: "Como escrever uma condicional IF no JavaScript?",
       options: ["if i = 5", "if i == 5 then", "if (i == 5)", "if i = 5 then"],
       answer: 2,
    },
    {
       question:
-         'Como fazer um if que executa um código caso "i" for diferente de 5',
+         'Como fazer um if que executa um código caso "i" for diferente de 5?',
       options: ["if (i != 5)", "if (i <> 5)", "if i <> 5", "if i =! 5 then"],
       answer: 0,
    },

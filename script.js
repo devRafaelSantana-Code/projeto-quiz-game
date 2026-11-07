@@ -1,48 +1,56 @@
-// Initial Data
+const questionAreaEl = document.querySelector(".questionArea");
+const scoreAreaEl = document.querySelector(".scoreArea");
+const progressBarEl = document.querySelector(".progress--bar");
+const questionTitleEl = document.querySelector(".question");
+const optionsContainerEl = document.querySelector(".options");
+const scoreText1El = document.querySelector(".scoreText1");
+const scoreText2El = document.querySelector(".scoreText2");
+const scorePctEl = document.querySelector(".scorePct");
+const quizStartEl = document.querySelector(".start");
+const resetBtn = document.querySelector(".scoreArea button");
 
 let currentQuestion = 0;
 let correctAnswers = 0;
-
-resetEvent();
-
-// Events
-document
-   .querySelector(".scoreArea button")
-   .addEventListener("click", resetEvent);
-
-// Functions
+let resetTimeout = null;
 
 function showQuestion() {
-   if (questions[currentQuestion]) {
-      let q = questions[currentQuestion];
+   const currentQuizQuestion = questions[currentQuestion];
 
-      let pct = Math.floor((currentQuestion / questions.length) * 100);
-      document.querySelector(".progress--bar").style.width = `${pct}%`;
+   if (currentQuizQuestion) {
+      const progressPercentage = Math.floor(
+         (currentQuestion / questions.length) * 100,
+      );
+      progressBarEl.style.width = `${progressPercentage}%`;
 
-      document.querySelector(".scoreArea").style.display = "none";
-      document.querySelector(".questionArea").style.display = "block";
+      scoreAreaEl.style.display = "none";
+      questionAreaEl.style.display = "block";
 
-      document.querySelector(".question").innerHTML = q.question;
-      document.querySelector(".options").innerHTML = "";
+      questionTitleEl.innerHTML = currentQuizQuestion.question;
 
-      let letters = ["A", "B", "C", "D"];
-
-      let optionsHtml = "";
-      for (let i in q.options) {
-         optionsHtml += `<div data-op="${i}" class="option"><span>${letters[i]}</span>${q.options[i]}</div>`;
-      }
-      document.querySelector(".options").innerHTML = optionsHtml;
+      const letters = ["A", "B", "C", "D"];
+      optionsContainerEl.innerHTML = currentQuizQuestion.options
+         .map(
+            (option, index) => `
+            <div data-op="${index}" class="option">
+               <span>${letters[index]}</span>${option}
+            </div>
+         `,
+         )
+         .join("");
 
       document.querySelectorAll(".options .option").forEach((item) => {
-         item.addEventListener("click", optionClickEvent);
+         item.addEventListener("click", handleOptionClick);
       });
    } else {
       finishQuiz();
    }
 }
 
-function optionClickEvent(e) {
-   let clickedOption = parseInt(e.target.getAttribute("data-op"));
+function handleOptionClick(event) {
+   const clickedOption = parseInt(
+      event.currentTarget.getAttribute("data-op"),
+      10,
+   );
 
    if (questions[currentQuestion].answer === clickedOption) {
       correctAnswers++;
@@ -53,51 +61,52 @@ function optionClickEvent(e) {
 }
 
 function finishQuiz() {
-   let points = Math.floor((correctAnswers / questions.length) * 100);
+   const totalPoints = Math.floor((correctAnswers / questions.length) * 100);
 
-   if (points <= 50) {
-      document.querySelector(".scoreText1").innerHTML = "Precisa melhorar!";
-      document.querySelector(".scorePct").style.color = "#f00";
-   } else if (points < 70) {
-      document.querySelector(".scoreText1").innerHTML = "Muito bom!";
-      document.querySelector(".scorePct").style.color = "#ff0";
+   if (totalPoints <= 50) {
+      scoreText1El.innerHTML = "Precisa melhorar!";
+      scorePctEl.style.color = "#ff4d4d";
+   } else if (totalPoints < 70) {
+      scoreText1El.innerHTML = "Muito bom!";
+      scorePctEl.style.color = "#ffdb4d";
    } else {
-      document.querySelector(".scoreText1").innerHTML = "Parabéns!";
-      document.querySelector(".scorePct").style.color = "#0f0";
+      scoreText1El.innerHTML = "Parabéns!";
+      scorePctEl.style.color = "#2ecc71";
    }
-   document.querySelector(".scorePct").style.textShadow = "0px 5px 5px #0005";
 
-   document.querySelector(".scorePct").innerHTML = `Acertou ${points}%`;
-   document.querySelector(".scoreText2").innerHTML =
-      `Você respondeu ${questions.length} questões e acertou ${correctAnswers}.`;
+   scorePctEl.style.textShadow = "0px 5px 5px rgba(0, 0, 0, 0.3)";
+   scorePctEl.innerHTML = `Acertou ${totalPoints}%`;
+   scoreText2El.innerHTML = `Você respondeu ${questions.length} questões e acertou ${correctAnswers}.`;
 
-   document.querySelector(".questionArea").style.display = "none";
-   document.querySelector(".scoreArea").style.display = "block";
+   questionAreaEl.style.display = "none";
+   scoreAreaEl.style.display = "block";
+   progressBarEl.style.width = "100%";
 
-   document.querySelector(".progress--bar").style.width = "100%";
-   setTimeout(() => {
-      resetEvent();
-   }, 7000);
+   resetTimeout = setTimeout(resetQuiz, 7000);
 }
 
-function resetEvent() {
-   let quizStart = document.querySelector(".start");
+function resetQuiz() {
+   if (resetTimeout) clearTimeout(resetTimeout);
 
-   document.querySelector(".questionArea").style.display = "none";
-   document.querySelector(".scoreArea").style.display = "none";
+   questionAreaEl.style.display = "none";
+   scoreAreaEl.style.display = "none";
 
-   if (quizStart) {
-      quizStart.innerHTML = "Início  de jogo";
-      quizStart.classList.add("piscar");
+   if (quizStartEl) {
+      quizStartEl.innerHTML = "Início de jogo";
+      quizStartEl.classList.add("piscar");
    }
 
    currentQuestion = 0;
    correctAnswers = 0;
 
    setTimeout(() => {
-      if (quizStart) {
-         quizStart.classList.remove("piscar"); // Remove o piscar para sumir com o h2
+      if (quizStartEl) {
+         quizStartEl.classList.remove("piscar");
       }
-      showQuestion(); // Agora sim exibe a primeira pergunta
+      showQuestion();
    }, 3000);
 }
+
+resetBtn.addEventListener("click", resetQuiz);
+
+resetQuiz();

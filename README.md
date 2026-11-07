@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/DOM-6C63FF?style=for-the-badge&logo=javascript&logoColor=white" alt="DOM">
+  <img src="https://img.shields.io/badge/DOM-6C63FF?style=for-the-badge&logo=javascript&logoColor=white" alt="DOM API">
 </p>
 
 ## 🚀 Demonstração
@@ -29,7 +29,7 @@ O desenvolvimento teve como foco a prática da lógica de programação, manipul
 
 - **HTML5:** estruturação semântica da aplicação.
 - **CSS3:** estilização da interface, organização dos elementos e animações.
-- **JavaScript Vanilla:** lógica do jogo, controle das perguntas, pontuação e interatividade.
+- **JavaScript Vanilla:** implementação da lógica do jogo, controle das perguntas, pontuação e interatividade.
 - **DOM API:** manipulação dinâmica dos elementos da página.
 
 ## ✨ Funcionalidades
@@ -107,10 +107,10 @@ O desenvolvimento deste projeto proporcionou a prática e consolidação de conh
 Estudante de Engenharia da Computação, com foco em desenvolvimento Full-Stack e construção de aplicações web.
 
 - **GitHub:** [devRafaelSantana-Code](https://github.com/devRafaelSantana-Code)
-- **Projeto:** [Quiz Game — Vercel](https://projeto-quiz-game.vercel.app/)
+- **Projeto online:** [Quiz Game — Vercel](https://projeto-quiz-game.vercel.app/)
 
 ---
 
 <p align="center">
-  Desenvolvido por <strong>Rafael Santana</strong> 🚀
+  Projeto desenvolvido para fins educacionais e para consolidação de conhecimentos em HTML5, CSS3, JavaScript e manipulação do DOM.
 </p>
